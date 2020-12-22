@@ -10,11 +10,14 @@ import UIKit
 private let reuseIdentifier = "InstagramCollectionViewCell"
 
 class InstagramCollectionViewController: UICollectionViewController {
-    @IBSegueAction func showDetail(_ coder: NSCoder) -> InstagramDetailViewController? {
-        //guard let row = collectionView.indexPathsForSelectedItems else {return nil}
-        return InstagramDetailViewController.init(coder: coder, items: items)
-    }
     var items = [InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges]()
+    
+    @IBSegueAction func showDetail(_ coder: NSCoder) -> InstagramDetailViewController? {
+        guard let row = collectionView.indexPathsForSelectedItems?.first?.row else {return nil}
+        print("row:\(row)")
+        return InstagramDetailViewController.init(coder: coder, items: items[row])
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +59,7 @@ class InstagramCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? InstagramCollectionViewCell else { return UICollectionViewCell()}
 
         let item = items[indexPath.item]
+        //print("Test: \(item)")
         URLSession.shared.dataTask(with: item.node.display_url) { (data, response, error) in
                 if let data = data{
                     DispatchQueue.main.async {
@@ -82,7 +86,7 @@ class InstagramCollectionViewController: UICollectionViewController {
                         self.items = searchResponse.graphql.user.edge_owner_to_timeline_media.edges
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
-                            print(self.items)
+//                            print(self.items)
                         }
                     } catch  {
                         print(error)
