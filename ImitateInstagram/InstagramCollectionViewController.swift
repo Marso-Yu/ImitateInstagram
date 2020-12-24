@@ -74,6 +74,11 @@ class InstagramCollectionViewController: UICollectionViewController {
         return cell
     }
     
+//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        
+//        return InstagramHeaderCollectionReusableView
+//    }
+    
     func fetchInstagramData(){
         let urlStr = "https://www.instagram.com/machiko324/?__a=1"
         if let url = URL(string: urlStr){
