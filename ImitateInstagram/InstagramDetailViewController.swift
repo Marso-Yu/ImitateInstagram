@@ -9,9 +9,9 @@ import UIKit
 
 class InstagramDetailViewController: UIViewController {
     @IBOutlet weak var showImageView: UIImageView!
-    var items: InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges
-    init?(coder: NSCoder, items: InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges) {
-        self.items = items
+    var insagramPicUrl: InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges
+    init?(coder: NSCoder, insagramPicUrl: InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges) {
+        self.insagramPicUrl = insagramPicUrl
         super.init(coder: coder)
     }
     
@@ -22,7 +22,7 @@ class InstagramDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //print(self.items)
-        URLSession.shared.dataTask(with: self.items.node.display_url) { (data, response, error) in
+        URLSession.shared.dataTask(with: self.insagramPicUrl.node.display_url) { (data, response, error) in
                 if let data = data{
                     DispatchQueue.main.async {
                         self.showImageView.image = UIImage(data: data)

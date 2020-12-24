@@ -10,12 +10,13 @@ import UIKit
 private let reuseIdentifier = "InstagramCollectionViewCell"
 
 class InstagramCollectionViewController: UICollectionViewController {
-    var items = [InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges]()
+    var instagramData: InstagramResponse?
+    var insagramPicUrl = [InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges]()
     
     @IBSegueAction func showDetail(_ coder: NSCoder) -> InstagramDetailViewController? {
         guard let row = collectionView.indexPathsForSelectedItems?.first?.row else {return nil}
         print("row:\(row)")
-        return InstagramDetailViewController.init(coder: coder, items: items[row])
+        return InstagramDetailViewController.init(coder: coder, insagramPicUrl: insagramPicUrl[row])
     }
 
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class InstagramCollectionViewController: UICollectionViewController {
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-        fetchItem()
+        fetchInstagramData()
         
     }
 
@@ -52,14 +53,13 @@ class InstagramCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return items.count
+        return insagramPicUrl.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? InstagramCollectionViewCell else { return UICollectionViewCell()}
 
-        let item = items[indexPath.item]
-        //print("Test: \(item)")
+        let item = insagramPicUrl[indexPath.item]
         URLSession.shared.dataTask(with: item.node.display_url) { (data, response, error) in
                 if let data = data{
                     DispatchQueue.main.async {
@@ -74,7 +74,7 @@ class InstagramCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    func fetchItem(){
+    func fetchInstagramData(){
         let urlStr = "https://www.instagram.com/machiko324/?__a=1"
         if let url = URL(string: urlStr){
             URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -83,20 +83,23 @@ class InstagramCollectionViewController: UICollectionViewController {
                 if let data = data{
                     do {
                         let searchResponse = try decoder.decode(InstagramResponse.self, from: data)
-                        self.items = searchResponse.graphql.user.edge_owner_to_timeline_media.edges
+                        self.instagramData = searchResponse
                         DispatchQueue.main.async {
+                            self.collatingOfData()
                             self.collectionView.reloadData()
 //                            print(self.items)
                         }
                     } catch  {
                         print(error)
                     }
-
                 }
             }.resume()
         }
     }
 
+    func collatingOfData(){
+        self.insagramPicUrl = (self.instagramData?.graphql.user.edge_owner_to_timeline_media.edges)!
+    }
     // MARK: UICollectionViewDelegate
 
     /*
