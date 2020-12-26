@@ -53,32 +53,103 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aSH-Fd-VvC" customClass="InstagramHeaderCollectionReusableView" customModule="ImitateInstagram" customModuleProvider="target">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InstagramCollectionViewReusableViewHeader" id="aSH-Fd-VvC" customClass="InstagramHeaderCollectionReusableView" customModule="ImitateInstagram" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLB-iP-GyM">
-                                    <rect key="frame" x="92" y="360" width="23" height="23"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLB-iP-GyM">
+                                    <rect key="frame" x="18" y="359" width="119.5" height="23"/>
                                     <state key="normal" image="combinedShape"/>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLR-r4-pnc">
-                                    <rect key="frame" x="280" y="359" width="24" height="24"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLR-r4-pnc">
+                                    <rect key="frame" x="276.5" y="358" width="119.5" height="24"/>
                                     <state key="normal" image="Tag"/>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3u-96-pTS">
-                                    <rect key="frame" x="196" y="358" width="22" height="25"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3u-96-pTS">
+                                    <rect key="frame" x="147.5" y="357" width="119" height="25"/>
                                     <state key="normal" image="iconIgtvIcon"/>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aab-ru-rZx">
-                                    <rect key="frame" x="17" y="15" width="79" height="79"/>
+                                    <rect key="frame" x="17" y="40" width="79" height="79"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEw-Qx-Cgd">
+                                    <rect key="frame" x="142" y="54" width="42" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFO-dh-q7t">
+                                    <rect key="frame" x="323" y="54" width="42" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2R2-ze-3QP">
+                                    <rect key="frame" x="20" y="144" width="300" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vii-It-h7q">
+                                    <rect key="frame" x="17" y="184" width="379" height="158"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                    <color key="textColor" systemColor="labelColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRN-6z-JtJ">
+                                    <rect key="frame" x="142" y="83" width="43" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Follow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqd-jW-fJu">
+                                    <rect key="frame" x="225" y="82" width="49" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Followings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acx-ph-o3Q">
+                                    <rect key="frame" x="303" y="83" width="81" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fib-64-DP9">
+                                    <rect key="frame" x="215" y="54" width="69" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="FLR-r4-pnc" firstAttribute="leading" secondItem="i3u-96-pTS" secondAttribute="trailing" constant="10" id="6bO-zv-dFO"/>
+                                <constraint firstItem="i3u-96-pTS" firstAttribute="leading" secondItem="eLB-iP-GyM" secondAttribute="trailing" constant="10" id="B2k-wM-ydx"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="eLB-iP-GyM" secondAttribute="bottom" constant="10" id="M5o-Bm-xEe"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="FLR-r4-pnc" secondAttribute="bottom" constant="10" id="OF0-1J-3GN"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="FLR-r4-pnc" secondAttribute="trailing" constant="10" id="OvX-Pa-rrX"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="i3u-96-pTS" secondAttribute="bottom" constant="10" id="ccS-gx-SVs"/>
+                                <constraint firstItem="eLB-iP-GyM" firstAttribute="leading" secondItem="aSH-Fd-VvC" secondAttribute="leadingMargin" constant="10" id="hRh-sG-eqz"/>
+                                <constraint firstItem="i3u-96-pTS" firstAttribute="width" secondItem="eLB-iP-GyM" secondAttribute="width" id="mHi-E4-Zqv"/>
+                                <constraint firstItem="FLR-r4-pnc" firstAttribute="width" secondItem="eLB-iP-GyM" secondAttribute="width" id="w5G-LN-UvD"/>
+                            </constraints>
                             <connections>
-                                <outlet property="ProfilePic" destination="Aab-ru-rZx" id="aM8-II-1Wr"/>
+                                <outlet property="biographyTextView" destination="Vii-It-h7q" id="XPs-tM-lTc"/>
+                                <outlet property="followersLabel" destination="fib-64-DP9" id="klR-s3-LQx"/>
+                                <outlet property="followingLabel" destination="vFO-dh-q7t" id="r6f-48-cXx"/>
+                                <outlet property="fullNameLabel" destination="2R2-ze-3QP" id="I1Y-DN-AqV"/>
+                                <outlet property="postsLabel" destination="uEw-Qx-Cgd" id="V8z-y5-RdA"/>
+                                <outlet property="profilePicImageView" destination="Aab-ru-rZx" id="DSD-wV-9vM"/>
                             </connections>
                         </collectionReusableView>
                         <connections>
@@ -140,6 +211,9 @@
         <image name="Tag" width="24" height="24"/>
         <image name="combinedShape" width="23" height="23"/>
         <image name="iconIgtvIcon" width="22" height="25"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

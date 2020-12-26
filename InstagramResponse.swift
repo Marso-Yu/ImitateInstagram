@@ -13,6 +13,7 @@ struct InstagramResponse: Codable{
         struct User: Codable {
             let biography: String
             let profile_pic_url_hd: URL
+            let username: String
             let full_name: String
             let edge_followed_by: Edge_followed_by
             struct Edge_followed_by:Codable {
@@ -26,6 +27,25 @@ struct InstagramResponse: Codable{
                     var node: Node
                     struct Node: Codable {
                         let display_url: URL
+                        let edge_media_to_caption: Edge_media_to_caption
+                        struct Edge_media_to_caption: Codable {
+                            let edges: [Edges]
+                            struct Edges: Codable {
+                                var node: Node
+                                struct Node: Codable {
+                                    var text: String
+                                }
+                            }
+                        }
+                        let edge_media_to_comment: Edge_media_to_comment
+                        struct Edge_media_to_comment: Codable {
+                            let count: Int
+                        }
+                        let edge_liked_by: Edge_liked_by
+                        struct Edge_liked_by: Codable {
+                            let count: Int
+                        }
+                        let taken_at_timestamp: Date
                     }
                 }
             }
