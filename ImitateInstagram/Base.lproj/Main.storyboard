@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,42 +17,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="id2-0B-id9">
-                            <size key="itemSize" width="124" height="124"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="3" minimumInteritemSpacing="3" id="id2-0B-id9">
+                            <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="50" height="400"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InstagramCollectionViewCell" id="mVc-Kl-0KB" customClass="InstagramCollectionViewCell" customModule="ImitateInstagram" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="400" width="124" height="124"/>
+                                <rect key="frame" x="0.0" y="400" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ptc-s1-Vy5">
-                                    <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gtz-7O-5cd">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fca-TZ-9SH">
-                                            <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="124" id="3GN-AN-q1h"/>
-                                                <constraint firstAttribute="height" constant="124" id="Ujx-hS-6Ow"/>
+                                                <constraint firstAttribute="width" secondItem="fca-TZ-9SH" secondAttribute="height" multiplier="1:1" id="gQx-Xs-si7"/>
+                                                <constraint firstAttribute="width" constant="50" id="gR2-PH-ENr"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="fca-TZ-9SH" secondAttribute="trailing" id="Iyp-3b-w6m"/>
-                                        <constraint firstAttribute="bottom" secondItem="fca-TZ-9SH" secondAttribute="bottom" id="aii-mu-Fuv"/>
-                                        <constraint firstItem="fca-TZ-9SH" firstAttribute="top" secondItem="ptc-s1-Vy5" secondAttribute="top" id="ivV-3I-SKZ"/>
-                                        <constraint firstItem="fca-TZ-9SH" firstAttribute="leading" secondItem="ptc-s1-Vy5" secondAttribute="leading" id="pmw-0y-SU6"/>
+                                        <constraint firstItem="fca-TZ-9SH" firstAttribute="top" secondItem="Gtz-7O-5cd" secondAttribute="top" id="gxJ-Kc-TWF"/>
+                                        <constraint firstAttribute="trailing" secondItem="fca-TZ-9SH" secondAttribute="trailing" id="twk-54-Lxu"/>
+                                        <constraint firstAttribute="bottom" secondItem="fca-TZ-9SH" secondAttribute="bottom" id="v6x-gq-eSU"/>
+                                        <constraint firstItem="fca-TZ-9SH" firstAttribute="leading" secondItem="Gtz-7O-5cd" secondAttribute="leading" id="w75-lG-2zu"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <connections>
+                                    <outlet property="cellWidthConstraints" destination="gR2-PH-ENr" id="SUt-ob-vf3"/>
                                     <outlet property="showImageView" destination="fca-TZ-9SH" id="zv5-Qh-9K3"/>
-                                    <segue destination="7hu-IZ-bid" kind="show" destinationCreationSelector="showDetail:" id="vuE-dc-9lT"/>
+                                    <segue destination="S0Y-W7-ZfJ" kind="show" destinationCreationSelector="showPostDetail:" id="Gno-Gw-Ign"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InstagramCollectionViewReusableViewHeader" id="aSH-Fd-VvC" customClass="InstagramHeaderCollectionReusableView" customModule="ImitateInstagram" customModuleProvider="target">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InstagramHeaderCollectionViewReusableView" id="aSH-Fd-VvC" customClass="InstagramHeaderCollectionReusableView" customModule="ImitateInstagram" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -98,7 +98,7 @@
                                     <rect key="frame" x="17" y="184" width="379" height="158"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                     <color key="textColor" systemColor="labelColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -163,30 +163,63 @@
             </objects>
             <point key="canvasLocation" x="844.92753623188412" y="79.6875"/>
         </scene>
-        <!--Instagram Detail View Controller-->
-        <scene sceneID="fbB-yc-cJM">
+        <!--Instagram Post Detail Collection View Controller-->
+        <scene sceneID="D3W-ja-epT">
             <objects>
-                <viewController id="7hu-IZ-bid" customClass="InstagramDetailViewController" customModule="ImitateInstagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Agj-qR-eIP" customClass="InstagramCollectionViewCell" customModule="ImitateInstagram" customModuleProvider="target">
+                <collectionViewController id="S0Y-W7-ZfJ" customClass="InstagramPostDetailCollectionViewController" customModule="ImitateInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GZl-0e-UdQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GC6-JO-mBs">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="1ze-eE-DrV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="6Fw-9v-ZhR"/>
-                    <connections>
-                        <outlet property="showImageView" destination="GC6-JO-mBs" id="EyM-rF-4S5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ztD-Z0-tY7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="3" minimumInteritemSpacing="3" id="gbp-X1-5l5">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InstagramPostDetailCollectionViewCell" id="6ui-7m-umF" customClass="InstagramPostDetailCollectionViewCell" customModule="ImitateInstagram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="X8S-dU-8IY">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zA7-5W-YzP">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="128" id="Ysn-r6-0lr"/>
+                                                <constraint firstAttribute="width" secondItem="zA7-5W-YzP" secondAttribute="height" multiplier="1:1" id="wJ4-de-LnF"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zA7-5W-YzP" firstAttribute="top" secondItem="X8S-dU-8IY" secondAttribute="top" id="1gg-uF-hZl"/>
+                                        <constraint firstAttribute="bottom" secondItem="zA7-5W-YzP" secondAttribute="bottom" id="4Gk-M7-S8m"/>
+                                        <constraint firstItem="zA7-5W-YzP" firstAttribute="leading" secondItem="X8S-dU-8IY" secondAttribute="leading" id="DIO-YV-M3k"/>
+                                        <constraint firstItem="zA7-5W-YzP" firstAttribute="leading" secondItem="X8S-dU-8IY" secondAttribute="leading" id="Qoc-gB-71p"/>
+                                        <constraint firstAttribute="trailing" secondItem="zA7-5W-YzP" secondAttribute="trailing" id="jcP-IH-Wtb"/>
+                                        <constraint firstAttribute="bottom" secondItem="zA7-5W-YzP" secondAttribute="bottom" id="lJb-5i-GW5"/>
+                                        <constraint firstAttribute="trailing" secondItem="zA7-5W-YzP" secondAttribute="trailing" id="uAa-3h-7po"/>
+                                        <constraint firstItem="zA7-5W-YzP" firstAttribute="top" secondItem="X8S-dU-8IY" secondAttribute="top" id="zFw-ec-8I7"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="postPicCellWidthConstraints" destination="Ysn-r6-0lr" id="EJN-02-f0w"/>
+                                    <outlet property="showPostImageView" destination="zA7-5W-YzP" id="7FW-HH-RY8"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="S0Y-W7-ZfJ" id="X1g-A0-gq8"/>
+                            <outlet property="delegate" destination="S0Y-W7-ZfJ" id="xEu-bO-R4g"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="S1M-kB-Z6u"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b17-qq-OfT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1550.7246376811595" y="79.6875"/>
+            <point key="canvasLocation" x="1744.9275362318842" y="79.6875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1YT-lE-kaV">

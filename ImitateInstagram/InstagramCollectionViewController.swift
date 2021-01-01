@@ -11,14 +11,14 @@ private let reuseIdentifier = "InstagramCollectionViewCell"
 
 class InstagramCollectionViewController: UICollectionViewController {
     var instagramData: InstagramResponse?
-    var insagramPicUrl = [InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges]()
+    var instagramPostPicture =  [InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges]()
     //var insagramPostCaption = [InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges.Node.Edge_media_to_caption.Edges]()
-    
-    @IBSegueAction func showDetail(_ coder: NSCoder) -> InstagramDetailViewController? {
+    @IBSegueAction func showPostDetail(_ coder: NSCoder) -> InstagramPostDetailCollectionViewController? {
         guard let row = collectionView.indexPathsForSelectedItems?.first?.row else {return nil}
-        print("row:\(row)")
-        return InstagramDetailViewController.init(coder: coder, insagramPicUrl: insagramPicUrl[row])
+        //print("row:\(row)")
+        return InstagramPostDetailCollectionViewController.init(coder: coder, instagramData: instagramData!, indexPath: row)
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +54,13 @@ class InstagramCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return insagramPicUrl.count
+        return instagramPostPicture.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? InstagramCollectionViewCell else { return UICollectionViewCell()}
 
-        let item = insagramPicUrl[indexPath.item]
+        let item = instagramPostPicture[indexPath.item]
         URLSession.shared.dataTask(with: item.node.display_url) { (data, response, error) in
                 if let data = data{
                     DispatchQueue.main.async {
@@ -76,7 +76,7 @@ class InstagramCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let resuableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "InstagramCollectionViewReusableViewHeader", for: indexPath) as? InstagramHeaderCollectionReusableView else {return UICollectionReusableView()}
+        guard let resuableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "InstagramHeaderCollectionViewReusableView", for: indexPath) as? InstagramHeaderCollectionReusableView else {return UICollectionReusableView()}
         
         if let profilPicUrl = self.instagramData?.graphql.user.profile_pic_url_hd {
             URLSession.shared.dataTask(with: profilPicUrl) { (data, response, error) in
@@ -144,7 +144,7 @@ class InstagramCollectionViewController: UICollectionViewController {
     }
 
     func collatingOfData(){
-        self.insagramPicUrl = (self.instagramData?.graphql.user.edge_owner_to_timeline_media.edges)!
+        self.instagramPostPicture = (self.instagramData?.graphql.user.edge_owner_to_timeline_media.edges)!
 //        print(self.instagramData?.graphql.user.edge_owner_to_timeline_media.edges[0].node.edge_media_to_caption.edges[0].node.text)
 //        print(self.instagramData?.graphql.user.edge_owner_to_timeline_media.edges[0].node.edge_media_to_comment.count)
 //        print(self.instagramData?.graphql.user.edge_owner_to_timeline_media.edges[0].node.edge_liked_by.count)
