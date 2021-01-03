@@ -12,7 +12,6 @@ private let reuseIdentifier = "InstagramCollectionViewCell"
 class InstagramCollectionViewController: UICollectionViewController {
     var instagramData: InstagramResponse?
     var instagramPostPicture =  [InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges]()
-    //var insagramPostCaption = [InstagramResponse.Graphql.User.Edge_owner_to_timeline_media.Edges.Node.Edge_media_to_caption.Edges]()
     @IBSegueAction func showPostDetail(_ coder: NSCoder) -> InstagramPostDetailCollectionViewController? {
         guard let row = collectionView.indexPathsForSelectedItems?.first?.row else {return nil}
         //print("row:\(row)")
@@ -61,6 +60,7 @@ class InstagramCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? InstagramCollectionViewCell else { return UICollectionViewCell()}
 
         let item = instagramPostPicture[indexPath.item]
+        //Fetch Post Image (Photo Wall)
         URLSession.shared.dataTask(with: item.node.display_url) { (data, response, error) in
                 if let data = data{
                     DispatchQueue.main.async {
@@ -77,7 +77,7 @@ class InstagramCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let resuableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "InstagramHeaderCollectionViewReusableView", for: indexPath) as? InstagramHeaderCollectionReusableView else {return UICollectionReusableView()}
-        
+        //Fetch Profile Image
         if let profilPicUrl = self.instagramData?.graphql.user.profile_pic_url_hd {
             URLSession.shared.dataTask(with: profilPicUrl) { (data, response, error) in
                 if let data = data{
@@ -99,15 +99,12 @@ class InstagramCollectionViewController: UICollectionViewController {
             let fullName = self.instagramData?.graphql.user.full_name,
             let biography = self.instagramData?.graphql.user.biography
         {
-            resuableView.postsLabel.text = "\(postsCount)"
-//            resuableView.followersLabel.adjustsFontSizeToFitWidth = true
-//            resuableView.followersLabel.minimumScaleFactor = 0.5
-            resuableView.followersLabel.text = "\(followCount)"
+            resuableView.postsLabel.text = NumCoverter(postsCount)
+
+            resuableView.followersLabel.text = NumCoverter(followCount)
             
-            resuableView.followingLabel.text = "\(followingCount)"
-            
-//            resuableView.fullNameLabel.adjustsFontSizeToFitWidth = true
-//            resuableView.fullNameLabel.minimumScaleFactor = 0.5
+            resuableView.followingLabel.text = NumCoverter(followingCount)
+
             resuableView.fullNameLabel.text = "\(fullName)"
             
             resuableView.biographyTextView.isEditable = false
@@ -131,7 +128,7 @@ class InstagramCollectionViewController: UICollectionViewController {
                         DispatchQueue.main.async {
                             self.collatingOfData()
                             self.navigationItem.title = self.instagramData?.graphql.user.username
-                            self.navigationItem.backButtonTitle = "返回"
+                            self.navigationItem.backButtonTitle = "Profile"
                             self.collectionView.reloadData()
 //                            print(self.items)
                         }

@@ -17,6 +17,7 @@
 		A10F6D462590938D00930CB7 /* InstagramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F6D452590938D00930CB7 /* InstagramCollectionViewCell.swift */; };
 		A17351ED259D65800007BCF3 /* InstagramPostDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17351EC259D65800007BCF3 /* InstagramPostDetailCollectionViewCell.swift */; };
 		A17351F0259D658C0007BCF3 /* InstagramPostDetailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17351EF259D658C0007BCF3 /* InstagramPostDetailCollectionViewController.swift */; };
+		A1A222CF25A0DD8400A50E12 /* NumberConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A222CE25A0DD8400A50E12 /* NumberConverter.swift */; };
 		A1E668372594E3F9007834D9 /* InstagramHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E668362594E3F9007834D9 /* InstagramHeaderCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		A10F6D452590938D00930CB7 /* InstagramCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramCollectionViewCell.swift; sourceTree = "<group>"; };
 		A17351EC259D65800007BCF3 /* InstagramPostDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramPostDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		A17351EF259D658C0007BCF3 /* InstagramPostDetailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramPostDetailCollectionViewController.swift; sourceTree = "<group>"; };
+		A1A222CE25A0DD8400A50E12 /* NumberConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberConverter.swift; sourceTree = "<group>"; };
 		A1E668362594E3F9007834D9 /* InstagramHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				A10F6D4125908F7B00930CB7 /* InstagramResponse.swift */,
+				A1A222CE25A0DD8400A50E12 /* NumberConverter.swift */,
 				A10F6D23259062C000930CB7 /* ImitateInstagram */,
 				A10F6D22259062C000930CB7 /* Products */,
 			);
@@ -154,6 +157,7 @@
 			files = (
 				A10F6D25259062C000930CB7 /* AppDelegate.swift in Sources */,
 				A10F6D27259062C000930CB7 /* SceneDelegate.swift in Sources */,
+				A1A222CF25A0DD8400A50E12 /* NumberConverter.swift in Sources */,
 				A10F6D3E25908D7D00930CB7 /* InstagramCollectionViewController.swift in Sources */,
 				A10F6D462590938D00930CB7 /* InstagramCollectionViewCell.swift in Sources */,
 				A17351ED259D65800007BCF3 /* InstagramPostDetailCollectionViewCell.swift in Sources */,
